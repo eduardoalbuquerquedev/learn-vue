@@ -10,12 +10,32 @@
     <div id="app">
         {{ message }}
     </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+            Passe o mouse sobre mim e veja a dica interligada dinamicamente
+        </span>
+    </div>
+    <div id="app-3">
+        <p v-if="seen">Agora você me viu</p>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
                 message: 'Olá Vue!'
+            }
+        })
+        var app2 = new Vue({
+            el: '#app-2',
+            data: {
+                message: 'Você carregou esta página em ' + new Date().toLocaleDateString()
+            } 
+        })
+        var app3 = new Vue({
+            el: '#app-3',
+            data: {
+                seen: true
             }
         })
     </script>
